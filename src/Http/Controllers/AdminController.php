@@ -22,7 +22,8 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
-        $this->middleware('role:super;super-admin;admin', ['only'=>'show']);
+        $this->middleware('role:super;super-admin;admin');
+        //$this->middleware('role:super;super-admin;admin', ['only'=>'show']);
         //$this->adminModel = config('multiauth.models.admin');
     }
 
