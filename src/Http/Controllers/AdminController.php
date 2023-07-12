@@ -44,7 +44,7 @@ class AdminController extends Controller
             $admins   = DB::table('admin_role')
                                 ->join('roles', 'roles.id', '=', 'admin_role.role_id')
                                 ->join('admins', 'admins.id', '=', 'admin_role.admin_id')
-                                ->select('admins.active','admins.name', 'admins.email', 'admins.id', 'admin_role.role_id', 'roles.name AS role_name')
+                                ->select('admins.active','admins.name', 'admins.email', 'admins.id', 'admins.last_login', 'admin_role.role_id', 'roles.name AS role_name')
                                 ->where(function($query) use ($terms){
                                     foreach($terms as $term){
                                         $query->where('admins.name', 'LIKE', "%{$term}%")
